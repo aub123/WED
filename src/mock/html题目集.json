@@ -1,0 +1,274 @@
+[
+  {
+    "序号": "FED1",
+    "标题": "表单类型",
+    "题目": "请依次写出以下类型的输入框。1. 类型为密码，默认值为\"nowcoder\" 2. 类型为复选框，且状态为已勾选",
+    "题解": "<input type=\"password\" value=\"newcoder\">\n<br>\n<input type=\"checkbox\" checked>",
+    "python测试脚本": null,
+    "所属": "HTML"
+  },
+  {
+    "序号": "FED2",
+    "标题": "表格结构",
+    "题目": "请写出具有表格标题为\"nowcoder\"的2行3列表格结构。",
+    "题解": "<table>\n    <!-- 补全代码 -->\n    <caption>nowcoder</caption>\n    <tr>\n        <td></td>\n        <td></td>\n        <td></td>\n    </tr>\n    <tr>\n        <td></td>\n        <td></td>\n        <td></td>\n    </tr>\n</table>\n\n\n\n\n\n\n\n",
+    "python测试脚本": null,
+    "所属": "HTML"
+  },
+  {
+    "序号": "FED3",
+    "标题": "图像标签属性",
+    "题目": "请写出具有标题属性和代替文本属性的图片标签。",
+    "题解": "<!-- 补全代码 --> <img src=\"  图片地址 \"    title=\" 标题属性 \"    alt=\" 代替文本属性  \"   >",
+    "python测试脚本": null,
+    "所属": "HTML"
+  },
+  {
+    "序号": "FED4",
+    "标题": "新窗口打开文档",
+    "题目": "请写出可以在新窗口打开文档的a标签。",
+    "题解": "<a href=\" #\" target=\"_blank\">    </a>\n<!--href 属性代表你想要把超链接连接到那个位置 ，#为空-->\n<!-- target 属性用来规定在何处打开链接文档 -->\n<!-- _blank 这个属性是在你点击后使用新窗口打开-->",
+    "python测试脚本": null,
+    "所属": "HTML"
+  },
+  {
+    "序号": "FED5",
+    "标题": "自定义列表",
+    "题目": "请写出列表项为\"nowcoder\"且列表项内容也为\"nowcoder\"的自定义列表。",
+    "题解": "  <!-- 补全代码 -->   \n\t\t<dl>        \n          <dt>nowcoder</dt>        \n          <dd>nowcoder</dd>\n\t\t</dl>",
+    "python测试脚本": null,
+    "所属": "HTML"
+  },
+  {
+    "序号": "FED6",
+    "标题": "加粗文字",
+    "题目": "使用一个标签将“牛客网”三个字加粗显示",
+    "题解": "// FED13加粗显示\n\n// 描述\n// 使用一个标签将“牛客网”三个字加粗显示\n\n// 给定的html代码：\n// <p>牛客网，程序员必备求职神器</p>\n\n// 解法1 修改html解决\n// <p><strong>牛客网</strong>，程序员必备求职神器</p>\n//为啥用<b></b>没有用\n// 解法2 用JS解决\nlet p = document.getElementsByTagName(\"p\")[0];\n// 获取第一个p元素\np.innerHTML = p.innerText.replace(\"牛客网\", \"<strong>牛客网</strong>\");\n// 用加上<strong>标签的文本替换\n\n// JS的另一种实现\n// (function(w,d){\n//     let p = document.querySelector('p')\n//     p.innerHTML = `<strong>牛客网</strong>${p.innerText.replace(/牛客网/, '')}`\n// })(window,document)\n\n// 解法3 用CSS设置样式\n// 但是题目会检查提交结果文档中strong标签的个数是否为1\n// 用例输入 function() { return document.getElementsByTagName('strong').length }\n// 预期输出 1\n// 实际输出 0\n// 所以这种方法不能通过本题目\n\n// // HTML：\n// <p><span>牛客网</span>，程序员必备求职神器</p>\n// // CSS：\n// span {\n//     font-weight: bold;\n// }",
+    "python测试脚本": null,
+    "所属": "HTML"
+  },
+  {
+    "序号": "FED7",
+    "标题": "语义化标签",
+    "题目": "请使用语义化标签创建头部标签且包含导航标签。\n注意：只需在html模块填写标签结构，有且仅有一个头部标签和一个导航标签。",
+    "题解": "<!-- 补全代码 -->\n<header>\n    <nav></nav>\n</header>\n<!--header头部标签，nav导航标签  -->\n<!--适合新手练习-->",
+    "python测试脚本": null,
+    "所属": "HTML"
+  },
+  {
+    "序号": "FED8",
+    "标题": "音频媒体标签属性",
+    "题目": "请写出具有控件功能的音频媒体标签。",
+    "题解": "<audio src=\"\" controls></audio>\n",
+    "python测试脚本": null,
+    "所属": "HTML"
+  },
+  {
+    "序号": "FED9",
+    "标题": "视频媒体标签属性",
+    "题目": "请写出具有当视频的媒体数据加载期间发生错误时执行某个方法事件的视频媒体标签。",
+    "题解": "<video width=\"100px\" height=\"100px\" onerror=\"fn()\" controls >\n        <source src=\"movie.mp4\" type=\"video/mp4\">\n        <source src=\"#\" type=\"\">\n        Your brower does not support.\n    </video>",
+    "python测试脚本": null,
+    "所属": "HTML"
+  },
+  {
+    "序号": "FED10",
+    "标题": "CSS选择器——标签、类、ID选择器",
+    "题目": "请将html模块中字体内容是\"红色\"的字体颜色设置为\"rgb(255, 0, 0)\"，\"绿色\"设置为\"rgb(0, 128, 0)\"，\"黑色\"设置为\"rgb(0, 0, 0)\"，且字体大小都为20px。",
+    "题解": "/*补全代码*/\ndiv{\n    font-size:20px;\n    color:rgb(255,0,0);\n}\n.green{\n    color:rgb(0, 128, 0)\n}\n#black{\n    color:rgb(0, 0, 0)\n}\n/*此处按照题意为改动任何html代码 */\n/*font-size 设置字体大小，color设置颜色加入rgb就等于设置了颜色的rgb值 */\n/*div是内置标签所以找到标签定义的时候不需要加入任何东西，class定义的类名要定义需要使用\n一个.来找到，定义id时需要使用#号*/",
+    "python测试脚本": null,
+    "所属": "css"
+  },
+  {
+    "序号": "FED11",
+    "标题": "CSS选择器——伪类选择器",
+    "题目": "请将html模块中ul列表的第2个li标签和第4个li标签的背景颜色设置成\"rgb(255, 0, 0)\"。",
+    "题解": "li:nth-child(even) {\n\tbackground-color: rgb(255, 0, 0);\n}",
+    "python测试脚本": null,
+    "所属": "css"
+  },
+  {
+    "序号": "FED12",
+    "标题": "CSS选择器——伪元素",
+    "题目": "请给html模块的div元素加一个后伪元素，且后伪元素的宽度和高度都是20px，背景颜色为\"rgb(255, 0, 0)\"。",
+    "题解": "<head>\n  <meta charset=utf-8>\n  <style type=\"text/css\">\n    /*补全代码*/\n    div::after{\n      content:\"\";\n      width: 20px;\n      height: 20px;\n      background-color: rgb(255,0,0);\n      display: block;\n    }\n  </style>\n</head>\n<body>\n<div></div>\n</body>\n</html>",
+    "python测试脚本": null,
+    "所属": "css"
+  },
+  {
+    "序号": "FED13",
+    "标题": "按要求写一个圆",
+    "题目": "请将html模块的div元素设置为一个半径是50px的圆，且边框为1px的黑色实线。\n要求：\n1. 圆角属性仅设置一个值\n2. 圆角属性单位请使用px\n注意：由于圆角属性设置广泛且都可以实现题目效果，所以请按照要求规范书写。",
+    "题解": "<html>\n  <head>      \n    <meta charset=utf-8>\n    <style type=\\\"text/css\\\">          \n    div{\n    width:100px;        \n    height:100px;         \n    border: 1px #000 solid;      \n    border-radius:50px;         \n    }       \n    </style>  \n  </head>    \n  <body>   \n    <div></div>  \n  </body></html>",
+    "python测试脚本": null,
+    "所属": "css"
+  },
+  {
+    "序号": "FED14",
+    "标题": "设置盒子宽高",
+    "题目": "请将html模块类为\"box\"的div元素宽度和高度都设置为100px，且内间距为20px、外间距为10px。",
+    "题解": "div.box{\n                width:100px;\n                height:100px;\n                background:red;\n                padding:20px;\n                margin:10px;\n            }",
+    "python测试脚本": null,
+    "所属": "css"
+  },
+  {
+    "序号": "FED15",
+    "标题": "段落标识",
+    "题目": "请将下面这句话以段落的形式展示在浏览器中——“牛客网是一个专注于程序员的学习和成长的专业平台。”",
+    "题解": "//1.获取元素\nlet bd = document.querySelector('body');\n//2.设置元素内容\nbd.innerHTML = '<p>牛客网是一个专注于程序员的学习和成长的专业平台。</p>' ",
+    "python测试脚本": null,
+    "所属": "css"
+  },
+  {
+    "序号": "FED16",
+    "标题": "设置文字颜色",
+    "题目": "请使用嵌入样式将所有p标签设置为红色文字",
+    "题解": "let head = document.head;\nlet style = document.createElement(\"style\");\nstyle.type = \"text/css\";\nstyle.innerHTML = \"p {color: rgb(255,0,0);}\";\nhead.appendChild(style);",
+    "python测试脚本": null,
+    "所属": "css"
+  },
+  {
+    "序号": "FED17",
+    "标题": " 圣诞树",
+    "题目": "圣诞节来啦！请用CSS给你的朋友们制作一颗圣诞树吧~这颗圣诞树描述起来是这样的：1. \"topbranch\"是圣诞树的上枝叶，该上枝叶仅通过边框属性、左浮动、左外边距即可实现。边框的属性依次是：宽度为100px、是直线、颜色为green（未显示的边框颜色都为透明）2. \"middleBranch\"是圣诞树的中枝叶，该上枝叶仅通过边框属性即可实现。边框的属性依次是：宽度为200px、是直线、颜色为green（未显示的边框颜色都为透明）\n3. \"base\"是圣诞树的树干，该树干仅通过左外边距实现居中于中枝叶。树干的宽度、高度分别为70px、200px，颜色为gray。\n注意：\n1. 上枝叶、树干的居中都是通过左外边距实现的\n2. 没有显示的边框，其属性都是透明（属性）\n3. 仅通过border属性完成边框的所有属性设置",
+    "题解": "<!DOCTYPE html>\n<html>\n    <head>\n        <meta charset=utf-8>\n        <style type=\"text/css\">\n            .topbranch {\n                width: 0px;\n                height: 0px;\n                /*\n                * TODO: 上枝叶效果\n                */\n                float: left;\n                border-bottom: 100px solid green;\n                border-top: 100px solid transparent;\n                border-left:100px solid transparent;\n                border-right:100px solid transparent;\n                margin-left: 100px;\n            }\n            .middleBranch {\n                width: 0px;\n                height: 0px;\n                /*\n                * TODO: 中枝叶效果\n                */\n                border-top: 200px solid transparent;\n                border-bottom: 200px solid green;\n                border-left:200px solid transparent;\n                border-right:200px solid transparent;\n            }\n            .base {\n                /*\n                * TODO: 树干效果\n                */\n                float: left;\n                height: 200px;\n                width: 70px;\n                background-color: gray;\n                margin-left: 165px;\n            }\n        </style>\n    </head>\n    <body>\n    \t<section class=\"topbranch\"></section>\n        <section class=\"middleBranch\"></section>\n        <section class=\"base\"></section>\n    </body>\n</html>",
+    "python测试脚本": null,
+    "所属": "css"
+  },
+  {
+    "序号": "FED19",
+    "标题": "固定定位",
+    "题目": "请将html模块类为\"box\"的div元素固定在视口的左上角。",
+    "题解": "<head> \n<meta charset=utf-8>        \n<style type=\\\"text/css\\\">            \n.box {                \n\twidth: 100px;                \n    height: 100px;               \n    \n    /*补全代码*/              \n    position:fixed;             \n    left:0px;               \n    top:0px;           \n    }      \n    </style> \n    </head>\n    <body> \n    <div class='box'></div> \n    </body>\n    </html>\",\"libs\":[]}",
+    "python测试脚本": null,
+    "所属": "css"
+  },
+  {
+    "序号": "FED20",
+    "标题": "CSS单位（一）",
+    "题目": "请将html模块中类为\"box\"的div元素的宽度和高度设置为自身字体大小的4倍。",
+    "题解": "<html>\n    <head>\n        <meta charset=utf-8>\n        <style type=\"text/css\">\n            .box {\n                /*补全代码*/\n                width: 4em;\n                height: 4em;\n            }\n        </style>\n    </head>\n    <body>\n        <div class='box'></div>\n    </body>\n</html>",
+    "python测试脚本": null,
+    "所属": "css"
+  },
+  {
+    "序号": "FED21",
+    "标题": "CSS单位（二）",
+    "题目": "请将html模块div元素的宽度和高度设置为html根元素字体大小的4倍。注意：只需在css模块补全样式内容，请勿修改html模块。",
+    "题解": "<head>      \n<meta charset=utf-8>        \n<style type=\\\"text/css\\\">          \n\tdiv {              \n\t/*补全代码*/              \n\twidth:4rem;\n\theight:4rem;          \n\t}       \n</style>   \n</head>    \n<body>        \n\t<div></div>  \n</body>\n</html>",
+    "python测试脚本": null,
+    "所属": "css"
+  },
+  {
+    "序号": "FED22",
+    "标题": "基本数据类型检测",
+    "题目": "请补全JavaScript函数，要求以字符串的形式返回参数的类型。注意：只需检测基本数据类型。",
+    "题解": "function _typeof(value) {\n    // 补全代码\n    return Object.prototype.toString.call(value).slice(8, -1).toLowerCase();\n}\n\nfunction _typeof(value) {\n    // 补全代码\n    return typeof(value);\n}",
+    "python测试脚本": null,
+    "所属": "ES5"
+  },
+  {
+    "序号": "FED23",
+    "标题": "检测复杂数据类型",
+    "题目": "请补全JavaScript函数，要求以Boolean的形式返回第一个参数是否属于第二个参数对象的实例。",
+    "题解": "function _instanceof(left,right) {\n    // 补全代码\n    left = Object.getPrototypeOf(left);\n    while(left){\n        if(left === right.prototype) return true\n        \n        left = Object.getPrototypeOf(left);\n    }\n   return false;\n}",
+    "python测试脚本": null,
+    "所属": "ES6"
+  },
+  {
+    "序号": "FED24",
+    "标题": "阶乘",
+    "题目": "请补全JavaScript函数，要求返回数字参数的阶乘。注意：参数为大于等于0的整数。",
+    "题解": "// for循环\nfunction _factorial(number) {\n    // 补全代码\n    let res = 1;\n    for(let i=1;i<=number;i++) {\n        res *=i;\n    }\n    return res;\n}\n\n// while循环\nfunction _factorial(number) {\n    // 补全代码\n    let res = 1;\n    while(number>=1) {\n        res *=number;\n        number--;\n    }\n    return res;\n}",
+    "python测试脚本": null,
+    "所属": "ES7"
+  },
+  {
+    "序号": "FED25",
+    "标题": "绝对值",
+    "题目": "请补全JavaScript函数，要求返回数字参数的绝对值。",
+    "题解": "function _abs(number) {\n    // 补全代码\n    return number >= 0 ? number :-number;\n}",
+    "python测试脚本": null,
+    "所属": "ES8"
+  },
+  {
+    "序号": "FED26",
+    "标题": "返回星期数",
+    "题目": "请补全JavaScript函数，要求以字符串的形式返回数字参数所对应的星期。示例：1. _getday(1) -> \"星期一\"2. _getday(7) -> \"星期天\"",
+    "题解": "function _getday(value) {\n    // 补全代码\n    let obj = {\n        1:'星期一',\n        2:'星期二',\n        3:'星期三',\n        4:'星期四',\n        5:'星期五',\n        6:'星期六',\n        7:'星期天',\n    }\n    return obj[value]\n}",
+    "python测试脚本": null,
+    "所属": "ES9"
+  },
+  {
+    "序号": "FED27",
+    "标题": "从大到小排序",
+    "题目": "请补全JavaScript函数，要求将数组参数中的数字从大到小进行排序并返回。",
+    "题解": "// 法一：选择排序\nfunction _sort(array) { \n    for(let i = 0; i < array.length; i++) {\n        for(let j = i + 1; j < array.length; j++) {\n            if(array[i] < array[j]) {\n                let temp = array[i];\n                array[i] = array[j];\n                array[j] = temp;\n            }\n        }\n    }\n    return array;\n}",
+    "python测试脚本": null,
+    "所属": "ES10"
+  },
+  {
+    "序号": "FED28",
+    "标题": "大写字符串",
+    "题目": "请补全JavaScript函数，要求将字符串参数转换为大写字符串并返回。",
+    "题解": "function _touppercase(string) {\n    // 1.return string.toUpperCase();\n    // 2. \"a\".charCodeAt   String.fromCharCode(97)\n    // 补全代码\n    let newString = \"\";\n    for(let i = 0; i < string.length; i++) {\n        // 字符串：A-Z a - z \n        // a 97 z 122\n        if(string[i].charCodeAt() >= 97 && string[i].charCodeAt() <= 122) {\n            newString += String.fromCharCode(string[i].charCodeAt() - 32);\n        }\n        else {\n            newString += string[i];\n        }\n        \n    }\n    return newString;\n    \n}",
+    "python测试脚本": null,
+    "所属": "ES11"
+  },
+  {
+    "序号": "FED30",
+    "标题": "this指向",
+    "题目": "请补全JavaScript函数，使obj对象中fn函数返回该对象中a属性和b属性的和。",
+    "题解": "var obj = { a: 1, b: 2, fn: function(){ // 补全代码 return this.a+this.b; } }",
+    "python测试脚本": null,
+    "所属": "ES13"
+  },
+  {
+    "序号": "FED31",
+    "标题": "JS动态创建节点",
+    "题目": "请补全JavaScript函数，根据参数数组创建li元素。要求：1. li元素的个数和数组的长度一样2. li元素的内容是数组中的每个元素3. 将创建的所有li元素插入到ul中",
+    "题解": "function createLi(array) {\n    var ul = document.querySelector('ul')\n    for(let i=0 ; i<array.length ; i++) {\n        let li = document.createElement('li')\n        li.innerHTML = array[i]\n        ul.appendChild(li)\n    }\n}",
+    "python测试脚本": null,
+    "所属": "webapi"
+  },
+  {
+    "序号": "FED32",
+    "标题": "根据ID获取元素",
+    "题目": "请补全JavaScript函数，根据id获取html模块中ul标签下第二个li元素并返回。",
+    "题解": "function getLI(id){\n    // 补全代码\n  var elementli = document.getElementById(\"li\");\n            return elementli;\n}",
+    "python测试脚本": null,
+    "所属": "webapi"
+  },
+  {
+    "序号": "FED33",
+    "标题": "JS修改元素内容",
+    "题目": "请补全JavaScript函数，将类为\"box\"的div元素内容修改为\"欢迎来到牛客网\"。",
+    "题解": "function modifyText() {\n    document.getElementsByClassName('box')[0].innerHTML = '欢迎来到牛客网'\n}",
+    "python测试脚本": null,
+    "所属": "webapi"
+  },
+  {
+    "序号": "FED34",
+    "标题": "阻止冒泡事件",
+    "题目": "请补全JavaScript函数，要求在点击li元素的时候不触发ul的事件。注意：需要自行获取li元素。",
+    "题解": "<html>\n    <head>\n        <meta charset=utf-8>\n    </head>\n    <body>\n        <ul>\n            <li>nowcoder</li>\n        </ul>\n    </body>\n    <script type=\"text/javascript\">\n        // 补全代码\n        var li=document.querySelector('li')\n        li.addEventListener('click',e=>{//addEventListener() 方法用于向指定元素添加监听事件\n            e.stopPropagation() // event.stopPropagation() 阻止捕获和冒泡阶段中当前事件的进一步传播               \n        })\n    </script>\n</html>",
+    "python测试脚本": null,
+    "所属": "webapi"
+  },
+  {
+    "序号": "FED35",
+    "标题": "阻止默认事件",
+    "题目": "请补全JavaScript函数，要求在点击id为\"checkbox\"的复选框时不会取消勾选状态。注意：需要自行获取input元素。",
+    "题解": "<html>\n    <head>\n        <meta charset=utf-8>\n    </head>\n    <body>\n        <form>\n            <label>牛客会陪伴大家</label>\n            <input id=\"checkbox\" type=\"checkbox\" checked />\n        </form>\n    </body>\n    <script type=\"text/javascript\">\n        // 补全代码\n        document.getElementById('checkbox').addEventListener('click',function(event){\n            event.preventDefault()\n        })\n       \n    </script>\n</html>",
+    "python测试脚本": null,
+    "所属": "webapi"
+  },
+  {
+    "序号": "FED36",
+    "标题": "url地址",
+    "题目": "请补全JavaScript函数，实现一个函数返回页面当前url。",
+    "题解": "function getUrlHref (){\n    // 补全代码\n    return  location.href\n}",
+    "python测试脚本": null,
+    "所属": "webapi"
+  }
+]

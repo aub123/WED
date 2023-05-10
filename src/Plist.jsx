@@ -1,11 +1,16 @@
 import React from "react";
 import { List } from "antd";
+import { useNavigate } from "react-router-dom";
 
 const Plist = ({ exercises }) => {
-  const handleSelectExercise = (exerciseId) => {
+  const navigate = useNavigate();
+  const handleSelectExercise = ({number,type}) => {
+    // console.log(params);
     // 在这里可以触发选中练习题目的事件
+    navigate(`/problem?problemId=${number}&type=${type}`)
     // 将 exerciseId 传递给父组件
   };
+  
   return (
     <List
       // header = {(<div>}</div>)}
@@ -13,12 +18,11 @@ const Plist = ({ exercises }) => {
       dataSource={exercises}
       // style={{width: "100vh"}}
       renderItem={(item) => (
-        <List.Item onClick={() => handleSelectExercise(item.id)}>
+        <List.Item onClick={() => handleSelectExercise({number:item.number,type:item.type})}>
           <List.Item.Meta
             className="list-item"
-            header={<div>{item.所属}</div>}
-            // avatar={<Avatar src={`https://xsgames.co/randomusers/avatar.php?g=pixel&key=${index%3}`} />}
-            title={<a href="#">{item.序号}{item.标题}</a>}
+            header={<div>{item.title}</div>}
+            title={<a>{item.number}{item.title}</a>}
             description={item.题目}
           />
         </List.Item>

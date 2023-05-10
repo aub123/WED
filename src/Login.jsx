@@ -69,7 +69,7 @@ const Login = () => {
                         //         if (res.status == 200) {
                         //             await showModal()
                         //             setTimeout(() => {
-                        //                 navigate('/')
+                        //                 navigate('/list')
                         //             }, 2000);
 
                         //         }

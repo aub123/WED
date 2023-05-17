@@ -3,6 +3,9 @@ import { Card, List, Tooltip, Avatar, Tabs } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import serviceAxios from './assets/js/Myaxios'
+
 
 // const mockTestData = [
 //   { input: "1,2,3", output: "6" },
@@ -55,10 +58,14 @@ import { useEffect } from "react";
 
 const ProblemPanel = ({ title, content }) => {
   const [list, setList] = useState([]);
-
+  const location = useLocation();
   useEffect(() => {
     // console.log(1)
-
+    console.log(location);
+    // const str = "?problemId=FED1&type=HTML";
+    const searchParams = new URLSearchParams(location.search);
+    const problemId = searchParams.get("problemId");
+    console.log(problemId); // "FED1"
     const data = [
       {
         eid: 1,
@@ -70,6 +77,13 @@ const ProblemPanel = ({ title, content }) => {
         test: null,
         type: "HTML",
       },
+
+      // data fetch
+      // serviceAxios.get(`fed/${problemId}`).then(
+      //   res => {
+      //     console.log(res);
+      //   }
+      // )
     ];
 
     const mock = data[0];

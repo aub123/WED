@@ -1,8 +1,12 @@
+import { Image } from "antd";
 import { Layout, Menu, theme } from "antd";
 const { Header, Footer, Sider, Content } = Layout;
 import { useNavigate } from "react-router-dom";
 const Mmenu = ({ Akey }) => {
   const map = [
+    // {
+    //   label: <img src="src/assets/img/OIP-C.jpg" width="40px"></img>,
+    // },
     {
       key: "index",
       label: <a href="/list">首页</a>,
@@ -27,6 +31,7 @@ const Mmenu = ({ Akey }) => {
         }}
       >
         <div className="demo-logo" />
+
         <Menu
           theme="dark"
           mode="horizontal"

@@ -10,10 +10,6 @@ const Handler = () => {
   return (
 
     <div className="handler-container">
-    <Navigation location={123}/>
-
-        {/* <div className="spin"></div> */}
-
       <ProblemPanel />
       <CodeEditor setShow={setShow} />
       <Spin className="spin" wrapperClassName="spin" spinning={show}></Spin>

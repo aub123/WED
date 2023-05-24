@@ -4,8 +4,8 @@ import { UserOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import serviceAxios from './assets/js/Myaxios'
-
+import serviceAxios from './assets/js/Myaxios';
+import Highlight from 'react-highlight'
 
 // const mockTestData = [
 //   { input: "1,2,3", output: "6" },
@@ -89,7 +89,9 @@ const ProblemPanel = ({ title, content }) => {
     const mock = data[0];
     setList([
       { id: 1, title: "题目", content: mock.task },
-      { id: 2, title: "题解", content: mock.solution },
+      { id: 2, title: "题解", content: <Highlight className={'javascript'}>
+      {mock.solution}
+    </Highlight> },
       { id: 3, title: "提交记录", content: mock.test },
     ]);
   }, []);

@@ -3,7 +3,6 @@ import ProblemPanel from "./ProblemPanel";
 import CodeEditor from "./CodeEditor";
 import { Spin } from "antd";
 import { useState } from "react";
-import Navigation from "./Navigation";
 const Handler = () => {
   const [show, setShow] = useState(0);
 

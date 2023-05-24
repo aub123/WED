@@ -24,7 +24,7 @@ const Error = () => (
           <p className="subline">
             The requested URL was not found on this server.That’s all we know.
           </p>
-          <a href="/index">Back Home</a>
+          <a href="/list">Back Home</a>
         </div>
         {/* /CONTAINER MID */}
 

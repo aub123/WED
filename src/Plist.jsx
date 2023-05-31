@@ -7,6 +7,8 @@ const Plist = ({ exercises }) => {
   const handleSelectExercise = ({number,type}) => {
     // console.log(params);
     // 在这里可以触发选中练习题目的事件
+    localStorage['problem'] = JSON.stringify({number,type})
+    console.log("click ",number,type);
     navigate(`/problem?problemId=${number}&type=${type}`)
     // 将 exerciseId 传递给父组件
   };

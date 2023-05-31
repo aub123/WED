@@ -23,6 +23,8 @@ const CodeEditor = ({ exerciseId, setShow }) => {
 
   const onSubmit = () => {
     setShow(1);
+    message.success("运行成功")
+
     serviceaxios
       .post({ exerciseId, code })
       .then((res) => {
@@ -40,11 +42,11 @@ const CodeEditor = ({ exerciseId, setShow }) => {
     // 在这里可以将当前代码提交给后端进行自动化测试
     // 并将测试结果显示给用户
     setShow(1)
-    console.log(code);
+    console.log(JSON.stringify(code));
     setTimeout(() => {
       setShow(0)
     }, 3000);
-    // message.success('123')
+    message.success('提交成功!')
 
     // onSubmit(exerciseId, code);
   };
@@ -63,7 +65,7 @@ const CodeEditor = ({ exerciseId, setShow }) => {
         value={code}
         onChange={handleCodeChange}
         name="code-editor"
-        editorProps={{ $blockScrolling: true }}
+        // editorProps={{ $blockScrolling: true }}
         width="100%"
         height="80vh"
         showPrintMargin={true}

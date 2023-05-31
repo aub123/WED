@@ -1,8 +1,26 @@
 import { Image } from "antd";
 import { Layout, Menu, theme } from "antd";
+import { useState } from "react";
+import { useEffect } from "react";
 const { Header, Footer, Sider, Content } = Layout;
-import { useNavigate } from "react-router-dom";
 const Mmenu = ({ Akey }) => {
+
+  const [url,setUrl] = useState('/problem?problemId=FED1&type=HTML')
+
+  useEffect(
+    () => {
+      if(localStorage['problem']) {
+        const {number, type} = JSON.parse(localStorage['problem']);
+        console.log(number,type);
+        if(!number || !type) {
+          number = 'FED1',
+          type = 'HTML'
+        }
+        setUrl(`/problem?problemId=${number}&type=${type}`)
+      }
+    },[]
+  )
+
   const map = [
     // {
     //   label: <img src="src/assets/img/OIP-C.jpg" width="40px"></img>,
@@ -13,10 +31,9 @@ const Mmenu = ({ Akey }) => {
     },
     {
       key: "problem",
-      label: <a href="/problem">问题</a>,
+      label: <a href={url}>问题</a>,
     },
   ];
-
   //   const navigate = useNavigate()
   return (
     <div>

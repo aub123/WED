@@ -65,35 +65,39 @@ const ProblemPanel = ({ title, content }) => {
     // const str = "?problemId=FED1&type=HTML";
     const searchParams = new URLSearchParams(location.search);
     const problemId = searchParams.get("problemId");
-    console.log(problemId); // "FED1"
-    const data = [
-      {
-        eid: 1,
-        number: "FED1",
-        title: "表单类型",
-        task: '请依次写出以下类型的输入框。1. 类型为密码，默认值为"nowcoder" 2. 类型为复选框，且状态为已勾选',
-        solution:
-          '<input type="password" value="newcoder">\n<br>\n<input type="checkbox" checked>',
-        test: null,
-        type: "HTML",
-      },
+    // console.log(problemId); // "FED1"
+    // const data = [
+    //   {
+    //     eid: 1,
+    //     number: "FED1",
+    //     title: "表单类型",
+    //     task: '请依次写出以下类型的输入框。1. 类型为密码，默认值为"nowcoder" 2. 类型为复选框，且状态为已勾选',
+    //     solution:
+    //       '<input type="password" value="newcoder">\n<br>\n<input type="checkbox" checked>',
+    //     test: null,
+    //     type: "HTML",
+    //   },
 
       // data fetch
-      // serviceAxios.get(`fed/${problemId}`).then(
-      //   res => {
-      //     console.log(res);
-      //   }
-      // )
-    ];
+      serviceAxios.get(`fed/${problemId}`).then(
+        (res) => {
+          console.log(res.data);
+          const mock = res.data[0];
+          setList([
+            { id: 1, title: "题目", content: mock.task },
+            { id: 2, title: "题解", content: <Highlight className={'javascript'}>
+            {mock.solution}
+          </Highlight> },
+            { id: 3, title: "提交记录", content: mock.test },
+          ]);
+        }
+      )
+      .catch(
+        err => console.log(err)
+      )
+    // ];
 
-    const mock = data[0];
-    setList([
-      { id: 1, title: "题目", content: mock.task },
-      { id: 2, title: "题解", content: <Highlight className={'javascript'}>
-      {mock.solution}
-    </Highlight> },
-      { id: 3, title: "提交记录", content: mock.test },
-    ]);
+
   }, []);
   return (
     <div className="left-side">

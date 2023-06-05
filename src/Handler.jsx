@@ -10,7 +10,7 @@ const Handler = () => {
 
     <div className="handler-container">
       <ProblemPanel />
-      <CodeEditor setShow={setShow} />
+      <CodeEditor setShow={setShow}/>
       <Spin className="spin" wrapperClassName="spin" spinning={show}></Spin>
 
     </div>

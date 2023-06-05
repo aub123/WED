@@ -19,6 +19,7 @@ const Plist = ({ exercises }) => {
       itemLayout="horizontal"
       dataSource={exercises}
       // style={{width: "100vh"}}
+      pagination={{position:'bottom',align:"center"}}
       renderItem={(item) => (
         <List.Item onClick={() => handleSelectExercise({number:item.number,type:item.type})}>
           <List.Item.Meta

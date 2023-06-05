@@ -7,13 +7,14 @@ import "ace-builds/src-noconflict/mode-css";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import serviceaxios from "./assets/js/Myaxios";
-import { Button, message, Space } from 'antd';
-import { FloatButton } from 'antd';
-import {PlayCircleOutlined} from '@ant-design/icons'
-
+import { Button, message, Space } from "antd";
+import { FloatButton } from "antd";
+import { PlayCircleOutlined } from "@ant-design/icons";
 
 const CodeEditor = ({ exerciseId, setShow }) => {
   const [code, setCode] = useState("");
+  const location = useLocation();
+
   const [type, setType] = useState("html");
   // const [show, setShow] = useState(0)
 
@@ -23,33 +24,60 @@ const CodeEditor = ({ exerciseId, setShow }) => {
 
   const onSubmit = () => {
     setShow(1);
-    message.success("运行成功")
+    const searchParams = new URLSearchParams(location.search);
+    const exerciseId = searchParams.get("problemId");
+    // console.log(code,exerciseId);
+    message.loading("提交中，请稍等。。。");
+    const final = JSON.stringify(code);
 
     serviceaxios
-      .post({ exerciseId, code })
+      .post(
+        `/codes/${exerciseId}`,
+        { data: final },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
       .then((res) => {
-        console.log(res);
-        message.success("运行成功")
-        setShow(0)
+        // console.log(res);
+        message.destroy();
+        message.success("提交成功");
+        // setShow(0)
+        serviceaxios.get(
+          `/test/${exerciseId}`,
+          { data: final },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        ).then((res) => {
+          setShow(0);
+          message.destroy();
+          message.success("运行成功");
+        })
       })
       .catch((err) => {
-        console.log(err);
-        message.error("运行失败")
+        // console.log("err");
+        message.destroy();
+        message.error("运行失败");
       });
   };
-  const location = useLocation();
-  const handleSubmit = () => {
-    // 在这里可以将当前代码提交给后端进行自动化测试
-    // 并将测试结果显示给用户
-    setShow(1)
-    console.log(JSON.stringify(code));
-    setTimeout(() => {
-      setShow(0)
-    }, 3000);
-    message.success('提交成功!')
+  // const handleSubmit = () => {
+  //   // 在这里可以将当前代码提交给后端进行自动化测试
+  //   // 并将测试结果显示给用户
+  //   setShow(1)
+  //   // console.log();
+  //   // setTimeout(() => {
+  //   //   setShow(0)
+  //   // }, 3000);
+  //   // serviceaxios.post(`'/codes/${f}`)
+  //   message.success('提交成功!')
 
-    // onSubmit(exerciseId, code);
-  };
+  //   // onSubmit(exerciseId, code);
+  // };
   useEffect(() => {
     // const str = "?problemId=FED1&type=HTML";
     const searchParams = new URLSearchParams(location.search);
@@ -79,8 +107,12 @@ const CodeEditor = ({ exerciseId, setShow }) => {
           tabSize: 2,
         }}
       />
-      <FloatButton icon={<PlayCircleOutlined/>}  className="submit-button" type="primary" onClick={handleSubmit}>
-      </FloatButton>
+      <FloatButton
+        icon={<PlayCircleOutlined />}
+        className="submit-button"
+        type="primary"
+        onClick={onSubmit}
+      ></FloatButton>
     </div>
   );
 };

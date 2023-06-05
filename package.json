@@ -19,6 +19,7 @@
     "react-ace": "^10.1.0",
     "react-dom": "^18.2.0",
     "react-highlight": "^0.15.0",
+    "react-infinite-scroll-component": "^6.1.0",
     "react-router-dom": "^6.10.0"
   },
   "devDependencies": {

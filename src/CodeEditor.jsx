@@ -44,6 +44,8 @@ const CodeEditor = ({ exerciseId, setShow }) => {
         // console.log(res);
         message.destroy();
         message.success("提交成功");
+        setShow(0);
+
         // setShow(0)
         serviceaxios.get(
           `/test/${exerciseId}`,
@@ -54,9 +56,12 @@ const CodeEditor = ({ exerciseId, setShow }) => {
             },
           }
         ).then((res) => {
-          setShow(0);
-          message.destroy();
-          message.success("运行成功");
+
+          setTimeout(() => {
+            message.destroy();
+            message.success("运行成功");
+          }, 3000);
+          
         })
       })
       .catch((err) => {

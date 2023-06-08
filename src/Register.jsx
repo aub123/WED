@@ -1,9 +1,9 @@
 import { Modal, Button, Form, Input, Row, Col } from 'antd'
 import React from "react";
 import { useNavigate } from 'react-router-dom';
-import register from '../api/register'
-import login from '../api/login'
-import getVerifycode from '../api/getVerifycode'
+// import register from '../api/register'
+// import login from '../api/login'
+// import getVerifycode from '../api/getVerifycode'
 // import { useState } from 'react';
 import { useReducer } from 'react';
 

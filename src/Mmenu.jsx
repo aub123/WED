@@ -10,12 +10,12 @@ const Mmenu = ({ Akey }) => {
   useEffect(
     () => {
       if(localStorage['problem']) {
-        const {number, type} = JSON.parse(localStorage['problem']);
+        const {number, type} = JSON.parse(localStorage['problem'])?JSON.parse(localStorage['problem']):({number:'FED1',type:'HTML'});
         console.log(number,type);
-        if(!number || !type) {
-          number = 'FED1',
-          type = 'HTML'
-        }
+        // if(!number || !type) {
+        //   number = 'FED1',
+        //   type = 'HTML'
+        // }
         setUrl(`/problem?problemId=${number}&type=${type}`)
       }
     },[]

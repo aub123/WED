@@ -7,6 +7,7 @@ import ExerciseList from "./ExerciseList";
 import WelcomePage from "./WelcomePage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Handler from "./Handler";
+// import Register from "./Register"
 import Error from "./Error";
 import Login from "./Login";
 import ListPage from "./ListPage";
@@ -41,6 +42,11 @@ const router =
       key: "login",
       element: <Login />,
     },
+    // {
+    //   path: "/register",
+    //   key: "register",
+    //   element: <Register />,
+    // },
     {
       path: "*",
       element: <Error />,

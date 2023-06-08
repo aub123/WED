@@ -5,6 +5,24 @@
   text-align: center;
 }
 
+.button {
+    width: 400px;
+    height: 56px;
+    border-radius: 12px;
+}
+.form{
+    width: 520px;
+    height: 450px;
+    background: #f2f3f7;
+    border-radius: 20px;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 51px 60px;
+
+}
+
 .card {
   padding: 2em;
 }

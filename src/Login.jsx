@@ -17,12 +17,12 @@ const Login = () => {
             <Form
                 className='form'
                 form={form}
-                labelCol={{
-                    span: 8,
-                }}
-                wrapperCol={{
-                    span: 8,
-                }}
+                // labelCol={{
+                //     span: 8,
+                // }}
+                // wrapperCol={{
+                //     span: 16,
+                // }}
                 initialValues={{
                     remember: true,
                 }}
@@ -57,42 +57,49 @@ const Login = () => {
                     <Input.Password placeholder="请输入密码" />
                 </Form.Item>
                 <Form.Item
-                    wrapperCol={{ offset: 8, span: 8 }}>
+                    // wrapperCol={{ offset: 8, span: 8 }}
+                    >
                     <Button type={"primary"} 
-                    // onClick={
-                        // async () => {
-                        //     const data = form.getFieldsValue()
-                        //     console.log(data)
-                        //     if (data.username && data.password && data.username.trim() && data.password.trim()) {
-                        //         const res = await login(data)
-                        //         console.log(res)
-                        //         if (res.status == 200) {
-                        //             await showModal()
-                        //             setTimeout(() => {
-                        //                 navigate('/list')
-                        //             }, 2000);
+                    className='button'
+                    onClick={
+                        async () => {
+                            const data = form.getFieldsValue()
+                            console.log(data)
+                            if (data.username && data.password && data.username.trim() && data.password.trim()) {
+                                // const res = await login(data)
+                                showModal();
+                                setTimeout(() => {
+                                    Promise.resolve();
+                                    hideModal();
+                                }, 3000);
+                                // console.log(res)
+                                // if (res.status == 200) {
+                                //     await showModal()
+                                //     setTimeout(() => {
+                                //         navigate('/list')
+                                //     }, 2000);
 
-                        //         }
-                        //     }
-                        //     else {
-                        //         console.log('failed')
-                        //     }
-                        // }
-                    // }
+                                // }
+                            }
+                            else {
+                                console.log('failed')
+                            }
+                        }
+                    }
                     >
                         Login
                     </Button>
                 </Form.Item>
-                <Form.Item
+                {/* <Form.Item
                     wrapperCol={{ offset: 8, span: 8 }}>
                     如果没有账户,请注册再登录<br />
                     <Button onClick={() => navigate('/register')}>
                         To Register
                     </Button>
-                </Form.Item>
+                </Form.Item> */}
 
             </Form>
-            <Modal visible={isModalVisible} onOk={() => { hideModal() }} onCancel={() => (hideModal())}>
+            <Modal visible={isModalVisible}>
                 登录成功等待跳转......
             </Modal>
         </>

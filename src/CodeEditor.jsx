@@ -43,26 +43,10 @@ const CodeEditor = ({ exerciseId, setShow }) => {
       .then((res) => {
         // console.log(res);
         message.destroy();
-        message.success("提交成功");
+        message.success("运行成功");
         setShow(0);
 
-        // setShow(0)
-        serviceaxios.get(
-          `/test/${exerciseId}`,
-          { data: final },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        ).then((res) => {
-
-          setTimeout(() => {
-            message.destroy();
-            message.success("运行成功");
-          }, 3000);
-          
-        })
+       
       })
       .catch((err) => {
         // console.log("err");

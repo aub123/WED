@@ -4,8 +4,8 @@ import { UserOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import serviceAxios from './assets/js/Myaxios';
-import Highlight from 'react-highlight'
+import serviceAxios from "./assets/js/Myaxios";
+import Highlight from "react-highlight";
 
 // const mockTestData = [
 //   { input: "1,2,3", output: "6" },
@@ -65,6 +65,7 @@ const ProblemPanel = ({ title, content }) => {
     // const str = "?problemId=FED1&type=HTML";
     const searchParams = new URLSearchParams(location.search);
     const problemId = searchParams.get("problemId");
+    const type = searchParams.get("type");
     // console.log(problemId); // "FED1"
     // const data = [
     //   {
@@ -78,26 +79,61 @@ const ProblemPanel = ({ title, content }) => {
     //     type: "HTML",
     //   },
 
-      // data fetch
-      serviceAxios.get(`fed/${problemId}`).then(
-        (res) => {
-          console.log(res.data);
-          const mock = res.data[0];
-          setList([
-            { id: 1, title: "题目", content: mock.task },
-            { id: 2, title: "题解", content: <Highlight className={'javascript'}>
-            {mock.solution}
-          </Highlight> },
-            { id: 3, title: "提交记录", content: mock.test },
-          ]);
-        }
-      )
-      .catch(
-        err => console.log(err)
-      )
+    // data fetch
+
+    serviceAxios
+      .get(`fed/${problemId}`)
+      .then(async (res) => {
+        console.log(res.data);
+        const mock = res.data[0];
+        const code = await serviceAxios
+          .get(`last/test/${problemId}`)
+          .catch((err) => "");
+        console.log(code);
+
+        // .then((res) => {
+        //   lastfile = JSON.parse(res.filename?.data);
+        //   console.log(lastfile);
+        // })
+        setList([
+          { id: 1, title: "题目", content: mock.task },
+          {
+            id: 2,
+            title: "题解",
+            content: (
+              <Highlight className={"javascript"}>{mock.solution}</Highlight>
+            ),
+          },
+          {
+            id: 3,
+            title: "提交记录",
+            content: (
+              <Card
+                title={problemId}
+                bordered={false}
+                style={{
+                  width: 300,
+                }}
+              >
+                
+                <Highlight className={"javascript"}>
+                  {code ? JSON.parse(code.filename?.data) : null}
+                </Highlight>
+                
+              </Card>
+            ),
+          },
+        ]);
+        // serviceAxios.get("/tests").then((res) => {
+        // const file = JSON.parse(res.filename?.file);
+
+        // console.log(res.filename);
+        // });
+        // });
+      })
+      .catch((err) => console.log(err));
+
     // ];
-
-
   }, []);
   return (
     <div className="left-side">

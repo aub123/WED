@@ -2,10 +2,24 @@ import { Modal, Button, Form, Input, Row, Col } from 'antd'
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 // import register from '../api/register'
+import serviceAxios from './assets/js/Myaxios'
 // import login from '../api/login'
 // import getVerifycode from '../api/getVerifycode'
 // import { useState } from 'react';
 import { useReducer } from 'react';
+
+const getVerifycode = (data) => {
+    serviceAxios.post('/verifycode', { phoneNumber: data })
+    // return new Promise((resolve, reject) => {
+    //     setTimeout(() => {
+    //         reject('error')
+    //     }, 1000);
+    // })
+}
+
+const register = (data) => {    
+    return serviceAxios.post('/signup', data)
+}
 
 const Register = () => {
     const [form] = Form.useForm();

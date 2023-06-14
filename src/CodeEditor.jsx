@@ -28,7 +28,7 @@ const CodeEditor = ({ exerciseId, setShow }) => {
     const exerciseId = searchParams.get("problemId");
     // console.log(code,exerciseId);
     message.loading("提交中，请稍等。。。");
-    const final = JSON.stringify(code);
+    const final = (code);
 
     serviceaxios
       .post(
@@ -41,15 +41,19 @@ const CodeEditor = ({ exerciseId, setShow }) => {
         }
       )
       .then((res) => {
-        // console.log(res);
-        message.destroy();
-        message.success("运行成功");
-        setShow(0);
+        console.log(res);
+        // const inputString = JSON.stringify(res.data.output);
+        // const startIndex = inputString.indexOf("passing") - "pass".length;
+        // const endIndex = inputString.indexOf("failing") 
+        // // + "failing".length;
+        // const data = inputString.substring(startIndex, endIndex).replace("\\n","\n");
 
-       
+        message.destroy();
+        message.success("运行成功: " + String(res.data.output));
+        setShow(0);
       })
       .catch((err) => {
-        // console.log("err");
+        console.log(err);
         message.destroy();
         message.error("运行失败");
       });

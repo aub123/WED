@@ -42,7 +42,7 @@ const ExerciseList = () => {
       })
       .catch((err) => console.log(err));
     serviceAxios
-      .get(`allweBapi`)
+      .get(`allnodejs`)
       .then((res) => {
         console.log(res.data);
         setAPI(res.data);
